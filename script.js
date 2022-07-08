@@ -1,34 +1,45 @@
+//DECLARE time entries container element
+
 var containerEL = document.querySelector("timeblocks")
 
 //DECLARE current time
 
-//DECLARE current hour
+var time = moment().format("h:mm:ss");
+$("#currentTime").text(time);
+
+//Declare current day
 
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 //DECLARE currrent day element
 
-//DECLARE time entries container element
+
 
 //Render a black for each hour of the day
 
-// var myArray = ["asdf", "asdf"] {
-for(var i = 0; i > today.length; i++){
+for (var i = 9; i <= 17; i++) { 
+
+    var key = "hour-"+i;
+    //Attempt to get saved data for each hour of the loop
+    var data = "asdf"
+    //compare i to current hour to determine if past present future
     
-};
-
-//compare i to currrent hour to determine if this hour is past present future
-
-//attempt to get the saved data for the hour of loop
-// var data = "hour-"+i
-
-// var data = ["asdf"]
-
+    var template = `
+    <div class="row">
+    <div>${i}</div>
+    <div class="hour">
+      <textarea>${data}</textarea>
+    </div>
+    <div>
+      <button class="saveBtn" data-hour="${i}">Save</button>
+    </div>
+  </div>
+  `;
+    
+}
 
 //APPEND html to container element
-
-// }
 
 //set up a click event listener on the container
 
