@@ -1,3 +1,6 @@
+var saveBtn = document.querySelector('button');
+var msgDiv = document.querySelector("#msg");
+
 //DECLARE time entries container element
 
 var containerEL = document.querySelector("timeblocks")
@@ -16,7 +19,7 @@ $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 
 
-//Render a black for each hour of the day
+//Render a block for each hour of the day
 
 for (var i = 9; i <= 17; i++) { 
 
@@ -51,23 +54,30 @@ for (var i = 9; i <= 17; i++) {
 
 //set up a click event listener on the container
 
-// containerEL.on("click", "[data-hour]", function(event) {
+containerEL.on("click", "[data-hour]", function(event) {
 
     //fetch the hour from the clicked buttons (event.taget) "data-hour" attribute.
 
-// var hour = event.target.getAttribute('data-hour');
+    var hour = event.target.getAttribute('data-hour');
 
     //use the hour to create the key for local storage.
 
+    hour = localStorage.getItem("data-hour");
+
     //from the clicked button, traverse the DOM to the nearby textarea to fetch it's value
 
-    //Use the key and the value into localstorage
+    saveBtn.addEventListener("click", );
+    document.querySelector(".description").innerHTML = data;
+    
+    //Save the key and the value into localstorage
 
-// });
+    
+
+});
 
     // save an hour to local storage
 
-
+    
 
 
 // GIVEN I am using a daily planner to create a schedule
