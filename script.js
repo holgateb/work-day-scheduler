@@ -22,12 +22,19 @@ for (var i = 9; i <= 17; i++) {
 
     var key = "hour-"+i;
     //Attempt to get saved data for each hour of the loop
-    var data = "asdf"
+    var data = ""
     //compare i to current hour to determine if past present future
+
+    //past red, current white, future green
+    if (i) {
+        $('.description').css({ 'background-color': '#d9e9e8', color: '#1a1a1a' });
+      } else {
+        $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
+      }
     
     var template = `
     <div class="row">
-    <div>${i}</div>
+    <div>${i}AM</div>
     <div class="hour">
       <textarea>${data}</textarea>
     </div>
@@ -36,16 +43,19 @@ for (var i = 9; i <= 17; i++) {
     </div>
   </div>
   `;
-    
-}
 
-//APPEND html to container element
+  //APPEND html to container element
+
+  document.getElementById("timeblocks").innerHTML = template;
+}
 
 //set up a click event listener on the container
 
-containerEL.on("click", "[data-hour]", function(event) {
+// containerEL.on("click", "[data-hour]", function(event) {
 
     //fetch the hour from the clicked buttons (event.taget) "data-hour" attribute.
+
+// var hour = event.target.getAttribute('data-hour');
 
     //use the hour to create the key for local storage.
 
@@ -53,7 +63,7 @@ containerEL.on("click", "[data-hour]", function(event) {
 
     //Use the key and the value into localstorage
 
-});
+// });
 
     // save an hour to local storage
 
