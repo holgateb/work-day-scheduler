@@ -1,4 +1,4 @@
-var saveBtn = document.querySelector('button');
+var saveBtnEl = document.querySelector('button');
 var msgDiv = document.querySelector("#msg");
 
 //DECLARE time entries container element
@@ -32,6 +32,8 @@ for (var i = 9; i <= 17; i++) {
     //past red, current white, future green
     if (i) {
         $('.description').css({ 'background-color': '#d9e9e8', color: '#1a1a1a' });
+      } else if {
+        $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
       } else {
         $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
       }
@@ -48,14 +50,14 @@ for (var i = 9; i <= 17; i++) {
   </div>
   `;
 
-  //APPEND html to container element
+  //APPEND html to container element????
 
   document.getElementById("timeblocks").innerHTML = template;
 }
 
 //set up a click event listener on the container
 
-containerEL.on("click", "[data-hour]", function(event) {
+containerEL.on("click", function(event) {
 
     //fetch the hour from the clicked buttons (event.taget) "data-hour" attribute.
 
@@ -72,13 +74,34 @@ containerEL.on("click", "[data-hour]", function(event) {
     
     //Save the key and the value into localstorage
 
+    function saveEntry(hour, data) {
+      var key = localStorage.getItem("key");
+      var data = localStorage.getItem("data");
     
+      // msgDiv.textContent = key + data;
 
 });
 
     // save an hour to local storage
 
+    saveButtonEl.addEventListener("click", function(event) {
+      event.preventDefault();
     
+      var email = document.querySelector("#email").value;
+      var password = document.querySelector("#password").value;
+    
+      if (email === "") {
+        displayMessage("error", "Email cannot be blank");
+      } else if (password === "") {
+        displayMessage("error", "Password cannot be blank");
+      } else {
+        displayMessage("success", "Registered successfully");
+    
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        renderLastRegistered();
+      }
+    });
 
 
 // GIVEN I am using a daily planner to create a schedule
