@@ -17,7 +17,8 @@ $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 //DECLARE currrent day element
 
-
+var currentDayEl = document.querySelector('#currentDay')
+var currentTimeEl = document.querySelector('#currentTime')
 
 //Render a block for each hour of the day
 
