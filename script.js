@@ -1,9 +1,9 @@
-var saveBtnEl = document.querySelector('button');
+var saveBtnEl = document.querySelector("button");
 var msgDiv = document.querySelector("#msg");
 
 //DECLARE time entries container element
 
-var containerEL = document.querySelector("timeblocks")
+var containerEl = document.querySelector("#timeblocks")
 
 //DECLARE current time
 
@@ -17,8 +17,8 @@ $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 //DECLARE currrent day element
 
-var currentDayEl = document.querySelector('#currentDay')
-var currentTimeEl = document.querySelector('#currentTime')
+// var currentDayEl = document.querySelector('#currentDay')
+// var currentTimeEl = document.querySelector('#currentTime')
 
 //Render a block for each hour of the day
 
@@ -26,94 +26,82 @@ for (var i = 9; i <= 17; i++) {
 
     var key = "hour-"+i;
     //Attempt to get saved data for each hour of the loop
-    var data = ""
+    var data = "asdasd"
     //compare i to current hour to determine if past present future
 
     //past red, current white, future green
-    if (i) {
-        $('.description').css({ 'background-color': '#d9e9e8', color: '#1a1a1a' });
-      } else if {
-        $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
-      } else {
-        $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
-      }
+
+    // if (i) {
+    //     $('.description').css({ 'background-color': '#d9e9e8', color: '#1a1a1a' });
+    //   } else if {
+    //     $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
+    //   } else {
+    //     $('.description').css({ 'background-color': '#a8c9a1', color: '#1a1a1a' });
+    //   }
     
     var template = `
     <div class="row">
-    <div>${i}AM</div>
-    <div class="hour">
-      <textarea>${data}</textarea>
+      <div>${i}AM</div>
+      <div class="hour">
+        <textarea>${data}</textarea>
+      </div>
+      <div>
+        <button class="saveBtn" data-hour="${i}">Save</button>
+      </div>
     </div>
-    <div>
-      <button class="saveBtn" data-hour="${i}">Save</button>
-    </div>
-  </div>
-  `;
+    `;
+
+console.log(template)
 
   //APPEND html to container element????
 
-  document.getElementById("timeblocks").innerHTML = template;
-}
+  $(".container").append(template);
+};
 
 //set up a click event listener on the container
 
-containerEL.on("click", function(event) {
+// containerEL.on("click", "button", function(event) {
 
-    //fetch the hour from the clicked buttons (event.taget) "data-hour" attribute.
+//     //fetch the hour from the clicked buttons (event.taget) "data-hour" attribute.
 
-    var hour = event.target.getAttribute('data-hour');
+//     var hour = event.target.getAttribute('data-hour');
 
-    //use the hour to create the key for local storage.
+//     //use the hour to create the key for local storage.
 
-    hour = localStorage.getItem("data-hour");
+//     hour = localStorage.getItem("data-hour");
 
-    //from the clicked button, traverse the DOM to the nearby textarea to fetch it's value
+//     //from the clicked button, traverse the DOM to the nearby textarea to fetch it's value
 
-    saveBtn.addEventListener("click", );
-    document.querySelector(".description").innerHTML = data;
+//     saveBtnEl.addEventListener("click", );
+//     document.querySelector(".description").innerHTML = data;
     
-    //Save the key and the value into localstorage
+//     //Save the key and the value into localstorage
 
-    function saveEntry(hour, data) {
-      var key = localStorage.getItem("key");
-      var data = localStorage.getItem("data");
+//     function saveEntry(hour, data) {
+//       var key = localStorage.getItem("key");
+//       var data = localStorage.getItem("data");
     
-      // msgDiv.textContent = key + data;
-
-});
+//       // msgDiv.textContent = key + data;
+//     }
+// });
 
     // save an hour to local storage
 
-    saveButtonEl.addEventListener("click", function(event) {
-      event.preventDefault();
+//     saveButtonEl.addEventListener("click", function(event) {
+//       event.preventDefault();
     
-      var email = document.querySelector("#email").value;
-      var password = document.querySelector("#password").value;
+//       var email = document.querySelector("#email").value;
+//       var password = document.querySelector("#password").value;
     
-      if (email === "") {
-        displayMessage("error", "Email cannot be blank");
-      } else if (password === "") {
-        displayMessage("error", "Password cannot be blank");
-      } else {
-        displayMessage("success", "Registered successfully");
+//       if (email === "") {
+//         displayMessage("error", "Email cannot be blank");
+//       } else if (password === "") {
+//         displayMessage("error", "Password cannot be blank");
+//       } else {
+//         displayMessage("success", "Registered successfully");
     
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
-        renderLastRegistered();
-      }
-    });
-
-
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-// WHEN I click into a timeblock
-// THEN I can enter an event
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
+//         localStorage.setItem("email", email);
+//         localStorage.setItem("password", password);
+//         renderLastRegistered();
+//       }
+// });
