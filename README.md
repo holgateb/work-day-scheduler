@@ -23,6 +23,6 @@ This is a workday schedule and calendar app. Enter tasks in the appropriate time
 
 ## Link to Deployed Application and Repo
 
-https://holgateb.github.io/quiz-game/
+https://holgateb.github.io/work-day-scheduler/
 
 https://github.com/holgateb
