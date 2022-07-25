@@ -26,7 +26,7 @@ for (var i = 9; i <= 17; i++) {
 
     var key = "hour-"+i;
     //Attempt to get saved data for each hour of the loop
-    var data = "asdasd"
+    var data = ""
     //compare i to current hour to determine if past present future
 
     //past red, current white, future green
@@ -60,48 +60,48 @@ console.log(template)
 
 //set up a click event listener on the container
 
-// containerEL.on("click", "button", function(event) {
+containerEL.on("click", "button", function(event) {
 
 //     //fetch the hour from the clicked buttons (event.taget) "data-hour" attribute.
 
-//     var hour = event.target.getAttribute('data-hour');
+    var hour = event.target.getAttribute('data-hour');
 
 //     //use the hour to create the key for local storage.
 
-//     hour = localStorage.getItem("data-hour");
+    hour = localStorage.setItem("data-hour");
 
 //     //from the clicked button, traverse the DOM to the nearby textarea to fetch it's value
 
-//     saveBtnEl.addEventListener("click", );
-//     document.querySelector(".description").innerHTML = data;
+    saveBtnEl.addEventListener("click", saveEntry());
+    document.querySelector(".description").innerHTML = data;
     
 //     //Save the key and the value into localstorage
 
-//     function saveEntry(hour, data) {
-//       var key = localStorage.getItem("key");
-//       var data = localStorage.getItem("data");
+    function saveEntry(hour, data) {
+      var hour = localStorage.getItem("data-hour");
+      var data = localStorage.getItem("data");
     
-//       // msgDiv.textContent = key + data;
-//     }
-// });
+      msgDiv.textContent = data-hour + data;
+    }
+});
 
     // save an hour to local storage
 
-//     saveButtonEl.addEventListener("click", function(event) {
-//       event.preventDefault();
+    saveButtonEl.addEventListener("click", function(event) {
+      event.preventDefault();
     
-//       var email = document.querySelector("#email").value;
-//       var password = document.querySelector("#password").value;
+      var email = document.querySelector("#email").value;
+      var password = document.querySelector("#password").value;
     
-//       if (email === "") {
-//         displayMessage("error", "Email cannot be blank");
-//       } else if (password === "") {
-//         displayMessage("error", "Password cannot be blank");
-//       } else {
-//         displayMessage("success", "Registered successfully");
+      if (email === "") {
+        displayMessage("error", "Email cannot be blank");
+      } else if (password === "") {
+        displayMessage("error", "Password cannot be blank");
+      } else {
+        displayMessage("success", "Registered successfully");
     
-//         localStorage.setItem("email", email);
-//         localStorage.setItem("password", password);
-//         renderLastRegistered();
-//       }
-// });
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        renderLastRegistered();
+      }
+});
